@@ -25,27 +25,27 @@ namespace IETTest08MAService
             // line. Comment it out again when you deploy your service for production use.
             // config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
             
-            Database.SetInitializer(new IETTest08MAInitializer());
+            //Database.SetInitializer(new IETTest08MAInitializer());
         }
     }
 
-    public class IETTest08MAInitializer : ClearDatabaseSchemaIfModelChanges<IETTest08MAContext>
-    {
-        protected override void Seed(IETTest08MAContext context)
-        {
-            List<TodoItem> todoItems = new List<TodoItem>
-            {
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
-            };
+    //public class IETTest08MAInitializer : ClearDatabaseSchemaIfModelChanges<IETTest08MAContext>
+    //{
+    //    protected override void Seed(IETTest08MAContext context)
+    //    {
+    //        List<TodoItem> todoItems = new List<TodoItem>
+    //        {
+    //            new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
+    //            new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
+    //        };
 
-            foreach (TodoItem todoItem in todoItems)
-            {
-                context.Set<TodoItem>().Add(todoItem);
-            }
+    //        foreach (TodoItem todoItem in todoItems)
+    //        {
+    //            context.Set<TodoItem>().Add(todoItem);
+    //        }
 
-            base.Seed(context);
-        }
-    }
+    //        base.Seed(context);
+    //    }
+    //}
 }
 
