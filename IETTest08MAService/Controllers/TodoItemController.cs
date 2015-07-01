@@ -3,12 +3,33 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 //using System.Web.Http.OData;
-using Microsoft.Azure.Mobile.Server;
+//using Microsoft.Azure.Mobile.Server;
 using IETTest08MAService.DataObjects;
 using IETTest08MAService.Models;
+using System.Web.Http.OData.Query;
+using System.Collections.Generic;
+using Microsoft.WindowsAzure.Mobile.Service;
 
 namespace IETTest08MAService.Controllers
 {
+
+    public class TodoItemController : TableController<TodoItem>
+    {
+        protected override void Initialize(HttpControllerContext controllerContext) {
+            base.Initialize(controllerContext);
+
+            // Create a new Azure Storage domain manager using the stored 
+            // connection string and the name of the table exposed by the controller.
+            string connectionStringName = "StorageConnectionString";
+            var tableName = controllerContext.ControllerDescriptor.ControllerName.ToLowerInvariant();
+            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName,
+                tableName, Request, Services);
+        }
+
+
+    }
+
+
     //public class TodoItemController : TableController<TodoItem>
     //{
     //    protected override void Initialize(HttpControllerContext controllerContext)
@@ -49,4 +70,6 @@ namespace IETTest08MAService.Controllers
     //        return DeleteAsync(id);
     //    }
     //}
+
+
 }

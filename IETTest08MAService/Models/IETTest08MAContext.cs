@@ -1,8 +1,8 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
-using Microsoft.Azure.Mobile.Server;
-using Microsoft.Azure.Mobile.Server.Tables;
+using Microsoft.WindowsAzure.Mobile.Service;
+using Microsoft.WindowsAzure.Mobile.Service.Tables;
 using IETTest08MAService.DataObjects;
 
 namespace IETTest08MAService.Models
